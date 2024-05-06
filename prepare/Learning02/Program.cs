@@ -18,7 +18,7 @@ class Program
 
         Resume myResume = new Resume();
         myResume._name = "Felipe Lima";
-
+ 
         myResume._jobs.Add(job1);
         myResume._jobs.Add(job2);
 
