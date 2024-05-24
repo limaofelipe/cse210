@@ -154,32 +154,39 @@ private string[] prompts = new string[]
 
 class Program
 {
-    static void Main(string[] args)
+static void Main(string[] args)
     {
-        Console.WriteLine("Welcome to the Mindfulness App! Please choose an activity:");
-        Console.WriteLine("1. Breathing");
-        Console.WriteLine("2. Reflection");
-        Console.WriteLine("3. Listing");
-
-        int choice = Int32.Parse(Console.ReadLine());
-
-        Activity activity;
-        switch (choice)
+        while (true)
         {
-            case 1:
-                activity = new BreathingActivity();
-                break;
-            case 2:
-                activity = new ReflectionActivity();
-                break;
-            case 3:
-                activity = new ListingActivity();
-                break;
-            default:
-                Console.WriteLine("Invalid choice. Exiting...");
-                return;
-        }
+            Console.WriteLine("Welcome to the Mindfulness App! Please choose an activity:");
+            Console.WriteLine("1. Breathing");
+            Console.WriteLine("2. Reflection");
+            Console.WriteLine("3. Listing");
+            Console.WriteLine("4. Exit");
 
-        activity.DoActivity();
+            int choice = Int32.Parse(Console.ReadLine());
+
+            Activity activity;
+            switch (choice)
+            {
+                case 1:
+                    activity = new BreathingActivity();
+                    break;
+                case 2:
+                    activity = new ReflectionActivity();
+                    break;
+                case 3:
+                    activity = new ListingActivity();
+                    break;
+                case 4:
+                    Console.WriteLine("Exiting...");
+                    return;
+                default:
+                    Console.WriteLine("Invalid choice. Please try again.");
+                    continue;
+            }
+
+            activity.DoActivity();
+        }
     }
 }
